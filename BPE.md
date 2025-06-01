@@ -1,11 +1,13 @@
-Byte Pair Encoding (BPE) Algorithm — Study Notes
-Purpose
+# Byte Pair Encoding (BPE) Algorithm — Study Notes
+
+## Purpose  
 BPE reduces vocabulary size by iteratively merging the most frequent adjacent symbol pairs in a corpus, creating meaningful subword tokens.
 
-Complete Code
-python
-Copy
-Edit
+---
+
+## Complete Code
+
+```python
 from collections import defaultdict, Counter  # Import data structures for counting frequencies
 
 def get_stats(corpus):
@@ -46,15 +48,3 @@ for i in range(num_merges):
     print("New vocab:")
     for word in corpus:
         print(f"  {word}")  # Display updated vocabulary
-Key Points to Remember
-Corpus format: Words are split into symbols (characters or subwords) separated by spaces, ending with </w> to mark word boundaries.
-
-get_stats: Counts frequency of every adjacent pair weighted by word frequency.
-
-merge_vocab: Merges the selected pair throughout all words, updating vocabulary.
-
-Loop: Repeats finding and merging the most frequent pair for num_merges iterations or until no pairs remain.
-
-Output: After each merge, vocabulary tokens become larger subword units representing merged pairs.
-
-This code is the core of BPE learning. Use it to understand how frequent pairs are merged stepwise to build an efficient subword vocabulary.
